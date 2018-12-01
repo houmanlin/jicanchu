@@ -1,0 +1,67 @@
+<view class='container0'>
+  <!-- <view class='Delivery'>
+    <view>
+      姓名：{{Delivery.name}}
+    </view>
+    <view class='address'>
+      地址：{{Delivery.adress}}
+    </view>
+    <view>
+      电话：{{Delivery.phone}}
+    </view>
+    <view>
+      价钱：{{Delivery.totle}}
+      <text class='yuan'>元</text>
+    </view>
+    <view class='addInfo' bindtap='AddInfo'>
+      <image src='../../static/img/add.png'></image>
+    </view>
+  </view> -->
+ 
+  <view class='OrderList'>
+    <view style='border-bottom:1px solid #dddddd;padding-top:60rpx'>
+     <button bindtap='getShoppingInfo' class='Button getShopInfo'>获取物品信息</button>
+    </view>
+    <view class='orderitem' wx:for='{{ShopList}}' wx:key="item">
+      <image src='{{item.img}}'/>
+      <view class='shoppInfo'>
+        <view class='shopname'>{{item.name}}</view>
+        <view class='shopbrand'>{{item.pinpai}}</view>
+        <view class='lingshou'>零售价：<text class='shopMoney'>{{item.lingshoujia}}</text>元</view>
+      </view>
+      <view class='sub'>
+        <view class='count' data-index="{{index}}" bindtap='numminus'>-</view>
+        <input value='{{item.num}}' data-index="{{index}}"/>
+        <view class='count' data-index="{{index}}" bindtap='numadd'>+</view>
+      </view>
+    </view>
+ </view>
+  
+
+</view>
+<view class='submit'>
+  <view class='jiage'>
+      <view class='jiageItem zongjia'>总价:<text>{{zongjia}} </text></view>
+      <view class='jiageItem suliang'>数量:{{number}} </view>
+  </view>
+    <button bindtap='submitOrder' class='Button submitOrder'>提交订单</button>
+</view>
+<!-- 设置购买人信息 -->
+<view class='Info' hidden='{{InfoView}}'>
+  <view class='form-input'>
+    <view>填写购买人信息</view>
+    <form bindsubmit='getInfo'>
+      <view class='form-Info'>姓名：<input name='name' placeholder='请输入姓名'/></view> 
+      <view class='form-Info'>地址：<input name='address' placeholder='请输入地址'/></view> 
+      <view class='form-Info'>电话：<input name='phoneNumber' placeholder='请输入电话'/></view> 
+      <view class='form-Info' style='justify-content:left;padding-left:60rpx'>付款方式：
+        <label>
+          <radio-group>
+            <radio wx:for='{{checked}}' wx:key="item" value='{{item.name}}' checked='{{item.checked}}'>{{item.name}}</radio>
+          </radio-group>
+        </label>
+      </view> 
+      <view class='form-Info'><button form-type='submit'>提交信息</button></view>
+    </form>
+  </view>
+</view>

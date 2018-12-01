@@ -1,0 +1,77 @@
+/* 动画 */
+
+.animation{
+  transform: rotateX(180deg);
+}
+
+/* index */
+.header{
+  width: 100%;
+  height: 60rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.headeritem{
+  width: auto;
+  height: auto;
+  display: inline-block;
+  justify-content: center;
+  color: #bdbdbd;
+  font-size:30rpx;
+  align-items: center;
+  padding: 15rpx 20rpx;
+  border-bottom: 3px solid #fff
+}
+.selected{
+  border-bottom: 3px solid red;
+  color: red
+}
+.headeritem image{
+  width: 30rpx;
+  height: 30rpx;
+  padding-left:10rpx 
+}
+
+/* 订单列表 */
+.orderList{
+  font-size:40rpx;
+  margin-top: 120rpx
+}
+.orderItem{
+  border-bottom: 1px solid #dddddd;
+  padding: 10rpx 0;
+  position: relative;
+}
+
+.adress{
+  color: #dddddd;
+  font-size: 35rpx;
+  display: flex;
+  justify-content: space-between
+}
+.zongjia{
+  right: 10rpx;
+  bottom: 10rpx;
+  color: red
+}
+.anniuzhu{
+  display: flex;
+  justify-content: flex-end;
+  padding-top:30rpx;
+  padding-bottom: 30rpx
+}
+.btn{
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 25rpx;
+  text-align: center;
+  border: 1px solid #dddddd;
+  margin-right: 20rpx
+}

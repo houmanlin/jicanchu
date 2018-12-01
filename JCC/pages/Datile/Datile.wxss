@@ -1,0 +1,12 @@
+.orderDatileItem{
+  width: 100%;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+  border-bottom:1px solid #dddddd;
+
+}
+.orderDatile{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}

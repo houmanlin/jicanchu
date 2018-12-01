@@ -1,0 +1,24 @@
+<scroll-view sroll-x class="header">
+  <view wx:for="{{SelectItem}}" wx:key="item" class='headeritem' bindtap=''>{{item}}</view>
+
+</scroll-view>
+<view class='container0'>
+  <view class='orderList'>
+    <view class='orderItem' wx:for="{{orderList}}" wx:key="item">
+      <view class='orderId' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.order_sn}}</view>
+      <view class='orderId' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.area_info}}</view>
+      <view class='adress' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.name}}:{{item.mob_phone}}
+        <view class='zongjia'>￥{{item.zongjia}}</view>
+      </view>
+      <view class='anniuzhu'>
+        <view class='btn'>取消订单</view>
+        <view class='btn'>确认订单</view>
+        <view class='btn' bindtap='orderDatile' data-orderSn='{{orderSn}}'>订单详情</view>
+      </view>
+
+
+    </view>
+    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' bindtap='Loadding' hidden='{{Load}}'>加载更多~</view>
+    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' hidden='{{!Load}}'>加载中...</view>
+  </view>
+</view>
