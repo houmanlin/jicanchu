@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderList: [{
+      order_sn: 1,
+      area_info: 1,
+      mob_phone: 1,
+      name: "厚啊美",
+      zongjia: 1,
+    }, {
+      order_sn: 1,
+      area_info: 1,
+      mob_phone: 1,
+      name: "厚啊美",
+      zongjia: 1,
+    }, {
+      order_sn: 1,
+      area_info: 1,
+      mob_phone: 1,
+      name: "厚啊美",
+      zongjia: 1,
+    }, {
+      order_sn: 1,
+      area_info: 1,
+      mob_phone: 1,
+      name: "厚啊美",
+      zongjia: 1,
+    }, {
+      order_sn: 1,
+      area_info: 1,
+      mob_phone: 1,
+      name: "厚啊美",
+      zongjia: 1,
+    }]
   },
 
   /**

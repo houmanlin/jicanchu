@@ -1,12 +1,88 @@
-.orderDatileItem{
+.header{
   width: 100%;
-  padding-top:20rpx;
+  height: 150rpx;
+  background: red;
+  text-align: center;
+  line-height: 60rpx;
+  padding-top: 30rpx;
+  color: white;
+  font-size: 30rpx
+}
+.userInfo{
+  display: flex;
+  align-items: center;
+  font-size: 35rpx;
+  padding-top:30rpx;
+  padding-bottom:30rpx;
+}
+.userInfo image{
+  width: 60rpx;
+  height: auto;
+  padding-right: 10rpx
+}
+.title{
+  font-size: 28rpx;
+  background: #e2e1e1;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+   
+}
+.scroll-height{
+  width: 100%;
+  height: 540rpx;
+  background: #b3b1b1;
+  /* padding-bottom: 10rpx */
+}
+.orderItem{
+  position: relative;
+  background: #ffffff
+}
+.border-t-b{
+  
+  border-bottom:1px solid #bdbdbd;
+  width: 100%;
+  height: auto;
   padding-bottom: 20rpx;
-  border-bottom:1px solid #dddddd;
+  padding-top: 20rpx;
 
 }
+.orderItemHeader{
+  border-top-color: #fff!important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx
+}
 .orderDatile{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  text-align: right;
+  font-size: 30rpx;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  
+}
+.orderItemHeader2{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border: none
+}
+.orderInfo{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 30rpx;
+}
+.orderInfo view{
+  padding-left: 40rpx
+}
+.orderInfo text,.jiage{
+  color: red
+}
+.ListItems{
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx
+}
+.gray{
+  color: #dadada;
+  font-size: 30rpx;
+  padding-top: 10rpx
 }

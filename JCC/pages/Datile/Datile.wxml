@@ -1,48 +1,46 @@
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
+<view class='header'>
+  <view>现金支付</view>
+  <view>实收金额:￥343.00</view>
+</view>
+<view class='userInfo container0'>
+  <image mode='widthFix' src='../../static/img/dingwei.png'></image>
+  <view>
+    <view>侯曼琳 15802458437</view>
+    <view>辽宁省沈阳市浑南新区五三乡</view>
   </view>
 </view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
+<view class='title'>
+  <view class='container0'>
+    店铺名称：集餐厨吉林扶余运营中心
   </view>
 </view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
+<scroll-view class='scroll-height' scroll-y>
+  <view class='orderItem' wx:for="{{orderList}}" wx:key="item" bindtap='orderDatile'>
+    <view class='border-t-b'>
+      <view class='container0 orderItemHeader orderItemHeader2'>
+        <view>7700400718001</view>
+        <view>全康QK-5.0圆棒竹筷</view>
+        <view>
+          <view> ￥58.00</view>
+          <view style='text-align:right'> x1</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='border-t-b' style='border-top:1px solid #bdbdbd;'>
+  <view class='ListItems container0'>
+    <view class='gray'>商品总价</view>
+    <view>￥343.00</view>
+  </view>
+  <view class='ListItems container0'>
+    <view class='gray'>运费</view>
+    <view>￥0.00</view>
+  </view>
+  <view class='ListItems container0'>
+    <view class='gray'>实付费(含运费)</view>
+    <view class='jiage'>￥343.00</view>
   </view>
 </view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
-  </view>
-</view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
-  </view>
-</view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
-  </view>
-</view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
-  </view>
-</view>
-<view class='orderDatileItem'>
-  <view class='container0 orderDatile'>
-    <view>订单号</view>
-    <view>1541246fdsfds431123</view>
-  </view>
-</view>
+<view class='gray'>订单编号：FX20181129-1329</view>
+<view class='gray'>创建时间：2018-12-01 15:42:31</view>

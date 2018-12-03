@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     query: 0,
     queryorder: 0,
     orderList:10,
+    selectedItem:0,
     Load:false,
     SelectItem: ["全部", "全部", "全部", "全部", "全部", "全部", "全部"],
      
@@ -69,6 +71,7 @@ Page({
       },]
   },
   onLoad: function() {
+
     //初始化数据
     this.setData({
       query: 0,
@@ -87,6 +90,12 @@ Page({
       },
     })
     
+  },
+  selectedItem:function(e){
+    this.data.selectedItem = e.currentTarget.dataset.index;
+    this.setData({
+      selectedItem: this.data.selectedItem
+    })
   },
   query: function() {
     if (this.data.query != 1) {

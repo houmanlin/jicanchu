@@ -1,24 +1,36 @@
+<button open-type='getUserInfo' style='margin-top:30px'>获取用户信息</button>
+
 <scroll-view sroll-x class="header">
-  <view wx:for="{{SelectItem}}" wx:key="item" class='headeritem' bindtap=''>{{item}}</view>
+  <view wx:for="{{SelectItem}}" wx:key="item" class="headeritem {{index == selectedItem ? '':'selected' }}selected" bindtap='selectedItem' data-index='{{index}}'>{{item}}</view>
 
 </scroll-view>
-<view class='container0'>
-  <view class='orderList'>
-    <view class='orderItem' wx:for="{{orderList}}" wx:key="item">
-      <view class='orderId' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.order_sn}}</view>
-      <view class='orderId' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.area_info}}</view>
-      <view class='adress' data-orderSn='{{order_sn}}' bindtap='orderDatile'>{{item.name}}:{{item.mob_phone}}
-        <view class='zongjia'>￥{{item.zongjia}}</view>
-      </view>
-      <view class='anniuzhu'>
-        <view class='btn'>取消订单</view>
-        <view class='btn'>确认订单</view>
-        <view class='btn' bindtap='orderDatile' data-orderSn='{{orderSn}}'>订单详情</view>
-      </view>
 
-
+<view class='orderList'>
+  <view class='orderItem' wx:for="{{orderList}}" wx:key="item" bindtap='orderDatile'>
+    <view class='border-t-b' style='border-top-color:#fff'>
+      <view class='container0 orderItemHeader'>
+        <view class='orderId' data-orderSn='{{order_sn}}'>订单编号:{{item.order_sn}}</view>
+        <view>
+          现金支付
+        </view>
+      </view>
     </view>
-    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' bindtap='Loadding' hidden='{{Load}}'>加载更多~</view>
-    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' hidden='{{!Load}}'>加载中...</view>
+    <view class='container0 orderItemHeader orderItemHeader2'>
+      <view>7700400718001</view>
+      <view>全康QK-5.0圆棒竹筷</view>
+      <view>
+        <view> ￥58.00</view>
+        <view style='text-align:right'> x1</view>
+      </view>
+    </view>
+    <view class='border-t-b'>
+      <view class='container0 orderInfo'>
+        <view>共3件商品</view>
+        <view>实收:<text>￥{{426.00}}</text></view>
+      </view>
+    </view>
+    <view class='orderDatile container0'>订单详情</view>
   </view>
+  <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' bindtap='Loadding' hidden='{{Load}}'>加载更多~</view>
+  <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' hidden='{{!Load}}'>加载中...</view>
 </view>

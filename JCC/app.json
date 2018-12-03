@@ -1,9 +1,8 @@
 {
   "pages": [
-      "pages/index/index",
-      "pages/create/create",
-      "pages/Datile/Datile"
-      
+    "pages/index/index",
+    "pages/Datile/Datile",
+    "pages/create/create"
   ],
     "window": {
       "navigationBarBackgroundColor": "#ee2e2e",
@@ -22,12 +21,6 @@
       {
         "pagePath": "pages/create/create",
         "text": "创建订单",
-        "iconPath": "static/img/order.png",
-        "selectedIconPath": "static/img/orderSelect.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
         "iconPath": "static/img/order.png",
         "selectedIconPath": "static/img/orderSelect.png"
       }
