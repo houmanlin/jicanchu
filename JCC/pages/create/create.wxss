@@ -1,11 +1,31 @@
+/* 获取人员信息 */
+
+.getuser{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
 /* 公共样式 */
 .Button{
   background: red;
   color: white;
   width: 80%;
-  height: auto
+  height: auto;
+  font-size: 30rpx
 }
-
+.bg-color-gray{
+  background: #dddddd;
+}
+.padd-tb-10{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx
+}
 /* 购买人信息 */
 .Delivery{
   width: 100%;
@@ -57,7 +77,8 @@ radio{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  z-index: 999
 }
 .form-input{
   width: 90%;
@@ -66,16 +87,29 @@ radio{
   padding-bottom:40rpx;
   text-align: center;
   background: #fff;
+  z-index: 9999
+}
+.clear{
+  width: 100rpx;
+  height: 130rpx;
+  text-align: center;
+  line-height: 130rpx;
+  color: #ffffff;
+  position: relative;
+  z-index: 99999
 }
 .form-Info{
-  width: 100%;
+  width: 96%;
   height: auto;
   display: flex;
-  justify-content: center;
-  padding-top:20rpx 
+  justify-content: space-between;
+  padding-top:20rpx ;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  z-index: 99999
 }
 .form-input input{
-  width: auto;
+  width: 75%;
   margin-left: 20rpx;
   border: 1px solid #dddddd;
   border-radius: 20rpx;
@@ -95,10 +129,98 @@ radio{
   color: #fff;
   width: 80%;
   height: 100rpx;
-  z-index: 2
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45rpx
+}
+.getShopInfo image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right:20rpx 
+}
+.shopnames{
+  width: 60%;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.Draft{
+  background: #ffbe42
+}
+.lingshou{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center
+}
+.shopMoney{
+  line-height: 0rpx
+}
+.search{
+  border: 1px solid #bdbcbc;
+  border-radius: 100rpx;
+  padding: 10rpx 0;
+  position: relative;
+}
+.selectInfo{
+  position: absolute;
+  bottom: -300px;
+  height: 300px;
+  width: 100%;
+  border-radius:20rpx;
+  overflow: hidden;
+  border:1px solid #dddddd;
+  background: #ffffff;
+
+  z-index: 99;
+
+}
+.Phoneitem{
+  width:94%;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 1px solid #ddd;
 }
 
-
+.UserInfo, .userUP{
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx
+}
+.select{
+  display: flex;
+  align-items: center
+}
+.down{
+  margin-left: 20rpx
+}
+.border{
+  width: 100%;
+  height: 1px;
+  background: #bdbcbc;
+  margin: 10rpx auto;
+}
+.UserInfo image{
+  width: 50rpx;
+  height: 50rpx
+}
+.selecthosework{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: -200px;
+  z-index: 999;
+  border:1px solid #dddddd;
+  border-radius: 10rpx;
+  background: #fff
+}
 /* 商品列表 */
 .OrderList{
   width: 100%;
@@ -145,15 +267,34 @@ radio{
 }
 .sub input{
   width: 70rpx;
-  height: 30rpx;
+  height: 60rpx;
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   text-align: center
 }
+.selectItem{
+  width: 96%;
+  border-bottom:1px solid #dddddd;
+  height: auto;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx ;
+  margin: 0 auto;
+  text-align: center
+}
+.Phoneitem{
+  width: 90%;
+  height: auto;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between
+}
 .count{
   width: 60rpx;
-  height: 30rpx;
-  text-align: center
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx
 }
 
 /* 提交订单 */

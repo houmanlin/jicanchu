@@ -1,0 +1,14 @@
+
+  <view class='kuang'>
+    <view class='top'>
+      <image src='../../static/img/logo.png' class='login' mode='widthFix' style='margin:{{margin}}px auto'></image>
+      <image src='../../static/img/yun.png' class='bg' mode='widthFix'></image>
+    </view>
+    <view class='bottom'>
+      <view wx:for="{{ImgUrl}}" wx:key="item" bindtap='clickthis' data-id='{{index}}'>
+        <image wx:if="{{index == '0'}}" src="{{login == '1' ? item.url : bangding}}" mode='aspectFit'></image>
+        <image wx:if="{{index != '0'}}" src='{{item.url}}' mode='aspectFit'></image>
+      </view>
+
+    </view>
+  </view>

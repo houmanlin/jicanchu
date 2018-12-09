@@ -1,28 +1,35 @@
 {
   "pages": [
-    "pages/index/index",
+    
+    "pages/inlet/inlet",
+    "pages/create/create",
     "pages/Datile/Datile",
-    "pages/create/create"
+    "pages/index/index"
   ],
-    "window": {
-      "navigationBarBackgroundColor": "#ee2e2e",
-      "navigationBarTextStyle": "white",
-      "navigationBarTitleText": "我的订单",
-      "backgroundColor": "#ee2e2e"
-    },
+  "window": {
+    "navigationStyle": "custom"
+  },
   "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#d81e06",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "订单",
-        "iconPath": "static/img/order.png",
-        "selectedIconPath": "static/img/orderSelect.png"
+        "pagePath": "pages/inlet/inlet",
+        "text": "首页",
+        "iconPath": "static/img/sy.png",
+        "selectedIconPath": "static/img/syselect.png"
       },
       {
         "pagePath": "pages/create/create",
-        "text": "创建订单",
-        "iconPath": "static/img/order.png",
-        "selectedIconPath": "static/img/orderSelect.png"
+        "text": "创建销售单",
+        "iconPath": "static/img/cj.png",
+        "selectedIconPath": "static/img/cjselect.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "订单",
+        "iconPath": "static/img/dd.png",
+        "selectedIconPath": "static/img/ddselect.png"
       }
     ]
   }

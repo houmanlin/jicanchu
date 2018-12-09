@@ -1,28 +1,39 @@
-<view class='header'>
-  <view>现金支付</view>
-  <view>实收金额:￥343.00</view>
+<view class='navClass' >
+    <view class='back' bindtap='backUpPage'>
+      <image src='../../static/img/fanhui.png'></image>
+    </view>
+    <view class='style'>订单详情</view>
 </view>
-<view class='userInfo container0'>
+<view class='navdian'></view>
+<view class='header' data-ordersn="{{order_sn}}">
+  <view>
+    <block wx:if="{{bank_id == '' && status == '2' }}">数据异常</block>
+    <block wx:if="{{bank_id != ''}}">{{bank_name}}</block>
+    
+  </view>
+  <view>实收金额:￥{{zongjia+yunfei}}</view>
+</view>
+<view class='userInfo container0' style='justify-content:flex-start'>
   <image mode='widthFix' src='../../static/img/dingwei.png'></image>
   <view>
-    <view>侯曼琳 15802458437</view>
-    <view>辽宁省沈阳市浑南新区五三乡</view>
+    <view>{{name == null ? " " : name }} {{phoneNum == null ? " " : phoneNum }}</view>
+    <view>{{address == null ? " " : address }}</view>
   </view>
 </view>
 <view class='title'>
   <view class='container0'>
-    店铺名称：集餐厨吉林扶余运营中心
+    店铺名称：{{shopname}}
   </view>
 </view>
 <scroll-view class='scroll-height' scroll-y>
-  <view class='orderItem' wx:for="{{orderList}}" wx:key="item" bindtap='orderDatile'>
+  <view class='orderItem' wx:for="{{goods}}" wx:key="item" bindtap='orderDatile'>
     <view class='border-t-b'>
       <view class='container0 orderItemHeader orderItemHeader2'>
-        <view>7700400718001</view>
-        <view>全康QK-5.0圆棒竹筷</view>
+        <view>{{item.rdh}}</view>
+        <view class='name'>{{item.goods_cp_name}}</view>
         <view>
-          <view> ￥58.00</view>
-          <view style='text-align:right'> x1</view>
+          <view>￥{{item.goods_cp_saleall}}</view>
+          <view style='text-align:right'> x{{item.number}}</view>
         </view>
       </view>
     </view>
@@ -31,16 +42,22 @@
 <view class='border-t-b' style='border-top:1px solid #bdbdbd;'>
   <view class='ListItems container0'>
     <view class='gray'>商品总价</view>
-    <view>￥343.00</view>
+    <view>￥{{zongjia}}</view>
   </view>
   <view class='ListItems container0'>
     <view class='gray'>运费</view>
-    <view>￥0.00</view>
+    <view>￥{{yunfei}}</view>
   </view>
   <view class='ListItems container0'>
     <view class='gray'>实付费(含运费)</view>
-    <view class='jiage'>￥343.00</view>
+    <view class='jiage'>￥{{zongjia+yunfei}}</view>
   </view>
 </view>
-<view class='gray'>订单编号：FX20181129-1329</view>
-<view class='gray'>创建时间：2018-12-01 15:42:31</view>
+<view class='quxiao'>
+  <view>
+    <view class='gray'>订单编号：{{rdh}}</view>
+    <view class='gray'>创建时间：{{creatOrderTime}}</view>
+  </view>
+
+  <button bindtap="next" class='next' data-ordersn="{{order_sn}}" wx:if="{{status == '2'}}"> 再次购买</button>
+</view>

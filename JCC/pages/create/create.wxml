@@ -1,67 +1,156 @@
+<view class='navClass'>
+  <view class='clear' bindtap='clear'>清空</view>
+  <view class='style'>创建销售单</view>
+</view>
+<view class='navdian'></view>
+<scroll-view bindscroll="scroll">
 <view class='container0'>
-  <!-- <view class='Delivery'>
-    <view>
-      姓名：{{Delivery.name}}
-    </view>
-    <view class='address'>
-      地址：{{Delivery.adress}}
-    </view>
-    <view>
-      电话：{{Delivery.phone}}
-    </view>
-    <view>
-      价钱：{{Delivery.totle}}
-      <text class='yuan'>元</text>
-    </view>
-    <view class='addInfo' bindtap='AddInfo'>
-      <image src='../../static/img/add.png'></image>
-    </view>
-  </view> -->
- 
-  <view class='OrderList'>
-    <view style='border-bottom:1px solid #dddddd;padding-top:60rpx'>
-     <button bindtap='getShoppingInfo' class='Button getShopInfo'>获取物品信息</button>
-    </view>
-    <view class='orderitem' wx:for='{{ShopList}}' wx:key="item">
-      <image src='{{item.img}}'/>
-      <view class='shoppInfo'>
-        <view class='shopname'>{{item.name}}</view>
-        <view class='shopbrand'>{{item.pinpai}}</view>
-        <view class='lingshou'>零售价：<text class='shopMoney'>{{item.lingshoujia}}</text>元</view>
-      </view>
-      <view class='sub'>
-        <view class='count' data-index="{{index}}" bindtap='numminus'>-</view>
-        <input value='{{item.num}}' data-index="{{index}}"/>
-        <view class='count' data-index="{{index}}" bindtap='numadd'>+</view>
-      </view>
-    </view>
- </view>
-  
+  <view class='container padd-tb-10 bg-color-gray'>
+    <view class='search inputHint'>
+      <icon type='search' size='18' style='padding-left:10px'></icon>
+      <input placeholder='姓名/手机号' class='seachinput' value="{{inputval}}" bindinput='changeval' bindfocus='changeFoucs' bindblur='changeBlur'></input>
+      <scroll-view class="selectInfo" scroll-y hidden='{{selectInfo}}'>
+        <view wx:for="{{userPhone}}" wx:key="item" data-name='{{item.g_name}}' data-phone="{{item.g_phone}}" bindtap='setPhone' class="Phoneitem">
 
-</view>
-<view class='submit'>
-  <view class='jiage'>
-      <view class='jiageItem zongjia'>总价:<text>{{zongjia}} </text></view>
+          <view>{{item.g_name}}</view>
+          <view>{{item.g_phone}}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='container padd-tb-10' style='border-bottom:5px solid #dddddd' bindtap='setUserInfo'>
+    <view class='UserInfo'>
+      <view class='userUP' style='flex-wrap:wrap'>
+        <block wx:if="{{Delivery.name != '' || Delivery.phone != ''}}">
+          <view class="userUP">
+            <view class='userINFO'>{{Delivery.name}}</view>
+            <view class='userINFO'>{{Delivery.phone}}</view>
+          </view>
+          <view class='userAdress userINFO'>
+            {{Delivery.address}}
+          </view>
+        </block>
+        <block wx:if="{{Delivery.name == '' || Delivery.phone == ''}}">
+          <view style='text-align:center;color:#707070'>
+            请输入收货人信息
+          </view>
+        </block>
+      </view>
+      <image src='../../static/img/right.png'></image>
+    </view>
+  </view>
+
+  <view class='container padd-tb-10' style='padding-top:10px;padding-bottom:10px;border-bottom:5px solid #dddddd'>
+    <view class='UserInfo' style='boder-bottom:1px solid #dddddd!important'>
+      <view style='width:100%;position:relative'>
+        <view class="userUP" bindtap='selectBank'>
+          <view>
+            支付方式
+          </view>
+          <view class='select'>{{bankname}}
+            <image class='down' src='../../static/img/xiala.png'></image>
+          </view>
+        </view>
+        <scroll-view scroll-y class='selecthosework' hidden='{{bankSelectList}}'>
+          <view wx:for="{{bank}}" wx:key="item" data-id="{{item.id}}" data-name="{{item.bank_name}}" class='selectItem' bindtap='selectBankitem'>
+            {{item.bank_name}}
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='border'></view>
+    <view style='width:100%;position:relative'>
+      <view class='UserInfo' bindtap='selecthosework'>
+        <view>
+          出货仓库
+        </view>
+        <view class='select'>{{warehousename}}
+          <image class='down' src='../../static/img/xiala.png'></image>
+        </view>
+      </view>
+      <scroll-view scroll-y class='selecthosework' hidden="{{wareSelectList}}">
+        <view wx:for="{{warehouse}}" wx:key="item" data-id="{{item.id}}" data-name="{{item.l_name}}" class='selectItem' bindtap='selectwarehouse'>
+          {{item.l_name}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='OrderList container0'>
+    <view style='border-bottom:1px solid #dddddd;padding-top:60rpx'>
+      <button bindtap='getShoppingInfo' class='Button getShopInfo'>
+        <image src='../../static/img/saoma.png'></image>扫码销售</button>
+    </view>
+    
+    <view class='orderitem' wx:for='{{ShopList}}' wx:key="item">
+
+      <view style='width:96%;margin:0 auto;display:flex;flex-wrap:wrap'>
+        <view class='shoppInfo shopfirst' style='display:block!important'>
+          <view class='shopname' style='color:#dddddd'>
+            <block wx:if="{{item.goods_cp_tm != undefined }}">{{item.goods_cp_tm}}</block>
+            <block wx:if="{{item.cp_tm != undefined }}">{{item.cp_tm}}</block>
+            
+          </view>
+          <view class='shopname shopnames'>
+          <block wx:if="{{item.goods_cp_name != undefined }}">{{item.goods_cp_name}}</block>
+            <block wx:if="{{item.cp_name != undefined }}">{{item.cp_name}}</block>
+           
+          </view>
+        </view>
+        <view class='shopname'>
+          <view class='lingshou'>
+            零售价：
+            <text class='shopMoney'>
+         <block wx:if="{{item.goods_cp_saleall != undefined }}">{{item.goods_cp_saleall}}</block>
+            <block wx:if="{{item.cp_saleall != undefined }}">{{item.cp_saleall}}</block>
+          </text>
+          </view>
+          <view class='sub'>
+            <view class='count' data-index="{{index}}" bindtap='numminus'>-</view>
+            <input value='{{item.num}}' type='number' bindblur='changval'  data-index="{{index}}" />
+            <view class='count' data-index="{{index}}" bindtap='numadd'>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='submitdian'></view>
+
+  <view class='submit'>
+    <view class='jiage'>
+      <view class='jiageItem zongjia'>总价:
+        <text>{{zongjia}} </text>
+      </view>
       <view class='jiageItem suliang'>数量:{{number}} </view>
+    </view>
+
+    <button bindtap='submitOrder' data-status='2' class='Button Draft'>草稿</button>
+    <button bindtap='submitOrder' data-status='0' class='Button submitOrder'>提交订单</button>
   </view>
-    <button bindtap='submitOrder' class='Button submitOrder'>提交订单</button>
-</view>
-<!-- 设置购买人信息 -->
-<view class='Info' hidden='{{InfoView}}'>
-  <view class='form-input'>
-    <view>填写购买人信息</view>
-    <form bindsubmit='getInfo'>
-      <view class='form-Info'>姓名：<input name='name' placeholder='请输入姓名'/></view> 
-      <view class='form-Info'>地址：<input name='address' placeholder='请输入地址'/></view> 
-      <view class='form-Info'>电话：<input name='phoneNumber' placeholder='请输入电话'/></view> 
-      <view class='form-Info' style='justify-content:left;padding-left:60rpx'>付款方式：
-        <label>
-          <radio-group>
-            <radio wx:for='{{checked}}' wx:key="item" value='{{item.name}}' checked='{{item.checked}}'>{{item.name}}</radio>
-          </radio-group>
-        </label>
-      </view> 
-      <view class='form-Info'><button form-type='submit'>提交信息</button></view>
-    </form>
+
+  <!-- 设置购买人信息 -->
+  <view class='Info' hidden='{{InfoView}}'>
+    <view class='form-input'>
+      <view>填写购买人信息</view>
+      <form bindsubmit='getInfo'>
+        <view class='form-Info'>姓名：
+          <input name='name' placeholder='请输入姓名' value='{{Delivery.name}}' />
+        </view>
+        <view class='form-Info'>地址：
+          <input name='address' placeholder='请输入地址' value='{{Delivery.address}}' />
+        </view>
+        <view class='form-Info'>电话：
+          <input name='phoneNumber' placeholder='请输入电话' value='{{Delivery.phone}}' />
+        </view>
+
+        <view class='form-Info'>
+
+          <button bindinour form-type='submit'>提交信息</button>
+        </view>
+      </form>
+    </view>
   </view>
 </view>
+  </scroll-view>
+<view class='Obscuration' bindtap='Obscuration' hidden='{{Obscuration}}'></view>

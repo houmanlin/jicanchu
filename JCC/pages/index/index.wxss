@@ -4,6 +4,7 @@
   transform: rotateX(180deg);
 }
 
+
 /* index */
 .header{
   width: 100%;
@@ -12,7 +13,7 @@
   display: flex;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 160rpx;
   left: 0;
   z-index: 2;
   border-bottom: 5px solid #dddddd
@@ -42,13 +43,17 @@
 /* 订单列表 */
 .orderList{
   font-size:40rpx;
-  margin-top: 80rpx
+  
 }
 .orderItem{
   border-bottom: 5px solid #dddddd;
   padding-top: 10rpx;
   position: relative;
+
 }
+/* .orderItem:nth-child(2n+1){
+  background: #ffffff
+} */
 .border-t-b{
   border-top:1px solid #bdbdbd;
   border-bottom:1px solid #bdbdbd;
@@ -114,4 +119,15 @@
   text-align: center;
   border: 1px solid #dddddd;
   margin-right: 20rpx
+}
+.container0{
+  width: 94%;
+  margin: 0 auto
+}
+.name{
+  width: 40%;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }

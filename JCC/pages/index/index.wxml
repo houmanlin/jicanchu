@@ -1,36 +1,54 @@
-<button open-type='getUserInfo' style='margin-top:30px'>获取用户信息</button>
+<view class='navClass'>
+   
+    <view class='style'>订单详情</view>
+</view>
+<!-- 
+  <scroll-view sroll-x class="header">
+    <view wx:for="{{SelectItem}}" wx:key="item" class="headeritem {{index == selectedItem ? '':'selected' }}selected" bindtap='selectedItem' data-index='{{index}}'>{{item}}</view>
 
-<scroll-view sroll-x class="header">
-  <view wx:for="{{SelectItem}}" wx:key="item" class="headeritem {{index == selectedItem ? '':'selected' }}selected" bindtap='selectedItem' data-index='{{index}}'>{{item}}</view>
-
-</scroll-view>
-
-<view class='orderList'>
-  <view class='orderItem' wx:for="{{orderList}}" wx:key="item" bindtap='orderDatile'>
-    <view class='border-t-b' style='border-top-color:#fff'>
-      <view class='container0 orderItemHeader'>
-        <view class='orderId' data-orderSn='{{order_sn}}'>订单编号:{{item.order_sn}}</view>
-        <view>
-          现金支付
+  </scroll-view> -->
+<view class='navdian'></view>
+  <view class='orderList'>
+    <view class='orderItem' wx:for="{{orderList}}" wx:key="item" bindtap='orderDatile' data-orderSn='{{item.r_dh}}' data-status="{{item.r_status == 2 ? '2' : '1' }}">
+      <view class='border-t-b' style='border-top-color:#fff'>
+        <view class='container0 orderItemHeader'>
+          <view class='orderId p-l-20'>订单编号:{{item.r_dh}}</view>
+          <view class='p-r-20' style="color:{{item.status == 0 ? 'red' : ''}}">
+            <block wx:if="{{item.r_status != 2 && item.bank.bank_name == null}}">数据异常</block>
+            <block wx:if="{{item.r_status != 2}}">{{item.bank.bank_name}}</block>
+            <block style="color:red" wx:if="{{item.r_status == 2}}">草稿</block>
+            
+          </view>
         </view>
       </view>
-    </view>
-    <view class='container0 orderItemHeader orderItemHeader2'>
-      <view>7700400718001</view>
-      <view>全康QK-5.0圆棒竹筷</view>
-      <view>
-        <view> ￥58.00</view>
-        <view style='text-align:right'> x1</view>
+      <view class='container0 orderItemHeader orderItemHeader2'>
+        <view>{{item.order_item[0].sku}}</view>
+        <view class='name'>{{item.orderItem[0].goods.cp_name}}</view>
+        <view>
+          <view> ￥{{item.orderItem[0].price}}</view>
+          <view style='text-align:right'> x{{item.order_item[0].number}}</view>
+        </view>
       </view>
-    </view>
-    <view class='border-t-b'>
-      <view class='container0 orderInfo'>
-        <view>共3件商品</view>
-        <view>实收:<text>￥{{426.00}}</text></view>
+      <view class='border-t-b'>
+        <view class='container0 orderInfo'>
+          <view>共 {{item.order_item_count}} 件商品</view>
+          <view>实收:
+            <text>￥{{item.money}}</text>
+          </view>
+        </view>
       </view>
+      <view class='orderDatile container0'>订单详情</view>
     </view>
-    <view class='orderDatile container0'>订单详情</view>
+    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' bindtap='Loadding' hidden='{{Load}}'>
+    <block wx:if="{{mei}}">
+    加载更多~
+    </block>
+    <block wx:if="{{!mei}}">
+    没有数据
+    </block>
+    
+    </view>
+    <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' hidden='{{!Load}}'>加载中...
+    </view>
+    
   </view>
-  <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' bindtap='Loadding' hidden='{{Load}}'>加载更多~</view>
-  <view style='text-align:center;padding-top:20rpx;padding-bottom:20rpx' hidden='{{!Load}}'>加载中...</view>
-</view>
